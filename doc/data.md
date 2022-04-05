@@ -6,7 +6,7 @@ This application will manage data about Jobs, Companies and Job Applications.
 
 You are
 provided with a JSON file containing sample data for each of these:
-[sample-data.json](frontend/sample-data.json).  For levels 1 and 2 you will just
+[sample-data.json](../frontend/sample-data.json).  For levels 1 and 2 you will just
 use the data in this JSON file directly (loaded via fetch).   You should
 not modify the data in any way as it will be used for testing.
 
