@@ -5,9 +5,9 @@
   ],
   "scripts": {
     "frontend": "http-server -a localhost -p 8083 frontend/src",
-    "cy:open": "cypress open",
-    "cy:run": "cypress run -s cypress/integration/$SPEC_FILE",
-    "test": "start-server-and-test frontend http-get://localhost:8083 cy:run",
+    "cypress": "cypress open",
+    "cy:testone": "cypress run -s cypress/integration/$SPEC_FILE",
+    "test": "start-server-and-test frontend http-get://localhost:8083 cy:testone",
     "lint": "eslint --ext .js frontend/src"
   },
   "devDependencies": {

@@ -13,7 +13,7 @@
     {
       "name": "Level 1b",
       "setup": "npm install",
-      "run": "env SPEC_FILE=level1-b.js npm test",
+      "run": "env SPEC_FILE=level1-b.spec.js npm test",
       "input": "",
       "output": "",
       "comparison": "included",

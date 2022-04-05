@@ -1,5 +1,7 @@
 # Level 3 and 4 Requirements
 
+__Note:__ this document will be updated in a later release
+
 ## Level 3
 
 * Strapi backend configured to store the jobs and company data

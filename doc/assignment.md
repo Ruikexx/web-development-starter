@@ -28,7 +28,7 @@ split into two parts: the front-end implemented in Javascript running in the
 browser, and the back-end implemented by Strapi and running on your
 desktop (the server).
 
-The data we will use is structured as described in [Data Description](doc/data.md).  
+The data we will use is structured as described in [Data Description](data.md).  
 
 We have split the description of the project into 'levels' with increasing
 complexity and difficulty.  The intention is that you should implement each
@@ -38,8 +38,8 @@ the first submission at the end of the mid-semester break.  The third and fourth
 levels require the backend Strapi server; you will integrate the front end with
 this and extend the functionality to allow authentication and posting of jobs.
 
-* [Levels 1 and 2](doc/level1-2.md)
-* [Levels 3 and 4](doc/level3-4.md)
+* [Levels 1 and 2](level1-2.md)
+* [Levels 3 and 4](level3-4.md)
 
 ## Grading
 
