@@ -1,49 +1,36 @@
-import { homeView } from "./view.js"
+import { splitHash} from "./router.js"
+import { HelpView, AboutUsView} from "./view.js"
 
-let allJobs = []
+let TenJobs =[]
 
-const loadData =() =>{
+function load_jobs(){
+
     fetch('/sample-data.json')
     .then((response) => {
         return response.json()
     })
-    .then((data) => {
-        allJobs = data.jobs
+    .then((data)=> {
+        TenJobs = data.jobs
         redraw()
-    })
+    })  
 }
 
-const getJob = (id) => {
-    for(let i=0; i<allJobs.length; i++) {
-        if (allJobs[i].id == id) {
-            return allJobs[i]
-        }
-    }
-    return null
-}
-
-const getJobs = () => {
-    return allJobs
-}
 
 const redraw = () => {
 
-    const pathInfo = split_hash(window.location.hash)
+    const pathInfo = splitHash(window.location.hash)
 
-    if (pathInfo.path === "jobs") {
-        if (pathInfo.id) {
-            const job = getJob(pathInfo.id)
-            bookView('content', job)
-        } else {
-            const jobs = getJobs()
-            bookListView('content', jobs)
+    if(pathInfo.path === "jobs") {
+        if(pathInfo.id === 'About Us'){
+        AboutUsView('content')
         }
     } else {
-        homeView('content')
+        if(pathInfo.id === 'Applicant Help'){
+        HelpView('content')
+        }
     }
 }
 
 
 window.onload = loadData; 
 window.onhashchange = redraw;
-
