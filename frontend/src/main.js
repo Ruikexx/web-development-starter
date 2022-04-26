@@ -1,24 +1,33 @@
-import { splitHash} from "./router.js"
-import { HelpView, AboutUsView} from "./view.js"
+import { Router} from "./router.js"
+import { HelpView, AboutUsView, homeView} from "./view.js"
 
-let TenJobs =[]
+let jobs=[]
 
-function load_jobs(){
+window.onload =() => data.jobs
 
-    fetch('/sample-data.json')
-    .then((response) => {
-        return response.json()
-    })
-    .then((data)=> {
-        TenJobs = data.jobs
-        redraw()
-    })  
+const router =new Router(HelpView)
+
+router.get('/', () => {
+    jobListView('content',0-10)
+})
+
+router.get('/about', ()=>{
+    AboutUsView('content')
+})
+
+router.get('/help', ()=>{
+    HelpView('content')
+})
+
+const gettenjobs = (id) => {
+    
+    return null
 }
 
 
 const redraw = () => {
 
-    const pathInfo = splitHash(window.location.hash)
+    const pathInfo = router.splitHash(window.location.hash)
 
     if(pathInfo.path === "jobs") {
         if(pathInfo.id === 'About Us'){
@@ -32,5 +41,5 @@ const redraw = () => {
 }
 
 
-window.onload = loadData; 
-window.onhashchange = redraw;
+window.onload = redraw; 
+

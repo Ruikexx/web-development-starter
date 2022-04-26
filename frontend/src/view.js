@@ -31,3 +31,25 @@ export const homeView = (id , job) => {
   </div>
   `)
 }
+
+export const errorView = () =>{
+  const target = document.getElementById('content')
+
+  target.innerHTML = "<p>Page not found</p>";
+}
+
+export const jobListView = (id, jobArray) => {
+
+  const template = Handlebars.compile(`
+      <div class=joblist>
+        <ul>
+          {{#each array}}
+              <li><a href="/#!/jobs/{{title}}">{{location}}>{{attributes.type}} by company {{attributes.company.data.attributes.name}}</a></li>
+          {{/each}}
+        </ul>
+      </div>
+  `)
+
+  const target = document.getElementById(id)
+  target.innerHTML = template({array: bookArray})
+}
