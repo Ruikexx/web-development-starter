@@ -1,14 +1,16 @@
-import { Router} from "./router.js"
-import { HelpView, AboutUsView, homeView} from "./view.js"
+import { Router} from "./router.js";
+import { HelpView, AboutUsView, jobListView,errorView, onejobView} from "./view.js";
+// import {Model} from "./model.js";
 
-let jobs=[]
+let Alljobs=[]
 
-window.onload =() => data.jobs
 
-const router =new Router(HelpView)
+
+const router =new Router(errorView)
 
 router.get('/', () => {
-    jobListView('content',0-10)
+   const list = get10jobs()
+   jobListView('content',list)
 })
 
 router.get('/about', ()=>{
@@ -19,27 +21,39 @@ router.get('/help', ()=>{
     HelpView('content')
 })
 
-const gettenjobs = (id) => {
-    
+
+const getjobs = (id) => {
+    for(let i=0; i<Alljobs.length; i++) {
+        if (Alljobs[i].id == id) {
+            return Alljobs[i]
+        }
+    }
     return null
 }
 
-
-const redraw = () => {
-
-    const pathInfo = router.splitHash(window.location.hash)
-
-    if(pathInfo.path === "jobs") {
-        if(pathInfo.id === 'About Us'){
-        AboutUsView('content')
-        }
-    } else {
-        if(pathInfo.id === 'Applicant Help'){
-        HelpView('content')
-        }
-    }
+const get10jobs = () => {
+    return Alljobs
 }
 
+const loadData = () => {
+    fetch('/sample-data.json')
+    .then((response) => {
+        return response.json()
+    })
+    .then((data) => {
+        Alljobs = data.jobs.slice(0,10)
+        redraw()
+    })
+}
 
-window.onload = redraw; 
+const redraw = () => {
+     router.route()
+     if(router.route === "jobs"){
+         const job = getjobs(id)
+         onejobView('content',job)    
+     }
+    }
+    
+
+window.onload = loadData;
 

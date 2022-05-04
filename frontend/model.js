@@ -1,25 +1,33 @@
-export {Model}
+// export {Model};
+// import * as view from "./view.js";
+
+// const Model = {
+//  job_url: '/api/jobs',
 
 
-const Model = {
- job_url: '/sample-data.json',
- data:{
-     jobs : [],
- }
- load : function(){
 
 
-    fetch(this.job_url)
-    .then((response) => {
-        return response.json()
-    })
-    .then((data) {
-           this.data.jobs=data.jobs
-           let event = new CustomEvent("modelUpdated")
-       window.dispatchEvent(event)
-       })
-} 
-}
+
+//  data:{
+//      jobs : [],
+//  },
+
+//  load: function(){
+
+//         fetch(this.job_url)
+//         .then((
+//             function(response) {
+//             return response.json()
+//         }
+//     )
+//         .then(
+//             function(data) {
+//             Alljobs = data.jobs.slice(0,10)
+//             redraw()
+//         }
+//         );
+//  }
+// }
 
 
 
